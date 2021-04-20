@@ -1,31 +1,32 @@
-import { NgModule, OnInit } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { FormsModule } from "@angular/forms";
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 
-// import { ButtonModule, InputModule } from "carbon-components-angular";
-
-import { AppComponent } from "./app.component";
-import { HelloComponent } from "./hello.component";
-import { HeaderComponent } from "./header/header.component";
-
-import {
-  ButtonModule,
-  InputModule,
-  UIShellModule,
-  IconService,
-  IconModule
-} from "carbon-components-angular";
-import Notification16 from "@carbon/icons/es/notification/16";
-import UserAvatar16 from "@carbon/icons/es/user--avatar/16";
-import AppSwitcher16 from "@carbon/icons/es/app-switcher/16";
+// carbon-components-angular default imports
+import { UIShellModule } from 'carbon-components-angular';
+import { Notification20Module } from '@carbon/icons-angular/lib/notification/20';
+import { UserAvatar20Module } from '@carbon/icons-angular/lib/user--avatar/20';
+import { AppSwitcher20Module } from '@carbon/icons-angular/lib/app-switcher/20';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, ButtonModule, InputModule],
-  declarations: [AppComponent, HelloComponent, HeaderComponent],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		HeaderComponent
+	],
+	imports: [
+		BrowserModule,
+		BrowserAnimationsModule,
+		FormsModule,
+		AppRoutingModule,
+		UIShellModule,
+		Notification20Module,
+		UserAvatar20Module,
+		AppSwitcher20Module
+	],
+	bootstrap: [AppComponent]
 })
-export class AppModule {
-  constructor(protected iconService: IconService) {
-    iconService.registerAll([Notification16, UserAvatar16, AppSwitcher16]);
-  }
-}
+export class AppModule { }
